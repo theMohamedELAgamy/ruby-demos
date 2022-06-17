@@ -48,7 +48,7 @@ end
     sum=0
     temp=nil
     for i in 0..arr.length
-        if arr[i]==17 or i==temp
+        if arr[i]==17 
             arr=arr-arr[i,i+1]
         end
         
