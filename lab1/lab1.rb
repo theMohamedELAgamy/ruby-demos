@@ -60,13 +60,106 @@ end
  end
  puts concat_arr([3, 17, 1, 7])
 
- def two_sum(nums, target)
+#  def two_sum(nums, target)
+#     for i in 0..nums.length-1
+#       for j in 0..nums.length-1
+#           if (i!=j and nums[i]+nums[j]==target )
+#               return [i,j]
+#           end
+#       end
+#   end
+# end
+def two_sum(nums, target)
+    hash=Hash.new
     for i in 0..nums.length-1
-      for j in 0..nums.length-1
-          if (i!=j and nums[i]+nums[j]==target )
-              return [i,j]
-          end
-      end
-  end
+        complement=target-nums[i]
+         if hash.has_key?(complement)
+            return [i,hash[complement]]
+        end
+        hash[nums[i]]=i
+    end
 end
-p two_sum([2,7,11,15],9)
+
+p two_sum([3,2,4],6)
+
+# def isBalanced(s)
+#     first_half=s[0,s.length/2]
+#     expected_second_half=[]
+#     for i in 0..first_half.length-1
+#         case first_half[i]
+#         when "("
+#             expected_second_half[i] = ")"
+#         when "["
+#             expected_second_half[i] = "]"
+#         when "{"
+#             expected_second_half[i] = "}"
+#         end
+#     end
+#     p expected_second_half.reverse.join
+#     if (expected_second_half.reverse.join==s[s.length/2,s.length])
+#         return 'YES'
+#     else
+#         return 'NO'
+#     end
+    
+
+# end
+
+# def isBalanced(s)
+#     # first_half=s[0,s.length/2]
+#     # expected_second_half=[]
+#     s=s.split('')
+#     for i in 0..s.length
+#         case s[i]
+#         when "("
+#             for j in i..s.length
+#                 if s[j]==')'
+#                     s.delete_at(j)
+#                     flag='YES'
+#                     break
+#                 else
+#                     flag='NO'
+#                 end
+#             end
+#         when "["
+#             for j in i..s.length
+#                 if s[j]==']'
+#                     s.delete_at(j)
+#                     flag='YES'
+#                     break
+#                 else
+#                     flag='NO'
+#                 end
+#             end
+#         when "{"
+#             for j in i..s.length
+#                 if s[j]=='}'
+#                     s.delete_at(j)
+#                     flag='YES'
+#                     break
+#                 else
+#                     flag='NO'
+#                 end
+#             end
+#         end
+#     end
+#    return flag
+    
+
+#  end
+def isBalanced(s)
+    n=-1
+    while s.length != n
+        n=s.length
+        s=s.sub('()','')
+        s=s.sub('[]','')
+        s=s.sub('{}','')
+    end
+    if s.length==0
+        return 'Yes'
+    else
+        return 'NO'
+    end
+end
+
+p isBalanced('{(([])[])[]]}')
