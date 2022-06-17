@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
+# @param {Integer[]} nums
+# @param {Integer} target
+# @return {Integer[]}
 def char_repeate(n,ch)
     for i in 1..n
         puts ch*i
@@ -57,3 +60,13 @@ end
  end
  puts concat_arr([3, 17, 1, 7])
 
+ def two_sum(nums, target)
+    for i in 0..nums.length-1
+      for j in 0..nums.length-1
+          if (i!=j and nums[i]+nums[j]==target )
+              return [i,j]
+          end
+      end
+  end
+end
+p two_sum([2,7,11,15],9)
