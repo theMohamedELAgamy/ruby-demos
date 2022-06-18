@@ -162,4 +162,36 @@ def isBalanced(s)
     end
 end
 
-p isBalanced('{(([])[])[]]}')
+# p isBalanced('{(([])[])[]]}')
+
+
+def hash(word)
+    hashed={}
+    for i in 0..word.length-1
+        if hashed.has_key?(word[i])
+            hashed[word[i]]=hashed[word[i]]+1
+        else
+            hashed[word[i]]=1
+        end
+    end
+    for i,k in hashed
+        if k!=1 
+            hashed.delete(i) 
+        end
+        
+    end
+    return  hashed
+end
+def count_words(words1, words2)
+    x=0
+    hash1=hash(words1)
+    hash2=hash(words2)
+    for i,k in hash1
+        if hash2.has_key?(i)
+           x=x+1 
+        end
+        
+    end
+    return x
+end
+p count_words(["leetcode","is","amazing","as","is"],["amazing","leetcode","is"])
