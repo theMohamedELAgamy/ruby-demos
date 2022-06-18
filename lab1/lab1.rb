@@ -195,3 +195,19 @@ def count_words(words1, words2)
     return x
 end
 p count_words(["leetcode","is","amazing","as","is"],["amazing","leetcode","is"])
+def count_words2(words1, words2)
+    count=0
+    for i in  0..words1.length-1
+        if words1.count(words1[i])>1
+            next
+        end
+        if words2.count(words1[i])>1
+            next
+        end
+        if words2.include?words1[i]
+            count=count+1
+        end
+    end
+    return count
+end
+p count_words2(["a","a","a","ab"],["a","ab"])
