@@ -211,3 +211,25 @@ def count_words2(words1, words2)
     return count
 end
 p count_words2(["a","a","a","ab"],["a","ab"])
+
+Definition for singly-linked list.
+class ListNode
+    attr_accessor :val, :next
+    def initialize(val = 0, _next = nil)
+        @val = val
+        @next = _next
+    end
+end
+@param {ListNode} l1
+@param {ListNode} l2
+@return {ListNode}
+def add_two_numbers(l1, l2)
+    list = LinkedList.new(l1)
+    # sum= String(Integer(l1.reverse.join)+Integer(l2.reverse.join)).split('').reverse()
+    # for i in 0..sum.length-1
+    #     sum[i]=Integer(sum[i]) 
+    # end
+    # return sum
+    return list
+end
+p add_two_numbers([2,4,3], [5,6,4])
