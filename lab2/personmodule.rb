@@ -25,6 +25,6 @@ module PersonModule
     end
 end
 
-p1=Person.new()
-p1.setBirthDate=Time.new(2022, 10, 15)
-p p1.welcome
+# p1=Person.new()
+# p1.setBirthDate=Time.new(2022, 10, 15)
+# p p1.welcome
